@@ -11,3 +11,7 @@ Route::get('/', function () {
 Route::resource('/equips',EquipController::class);
 
 Route::resource('/estadis',EstadiController::class);
+
+
+
+?>
