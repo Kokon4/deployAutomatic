@@ -26,5 +26,4 @@ class Jugadora extends Component
     }
 }
 
-
 ?>

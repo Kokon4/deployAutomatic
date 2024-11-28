@@ -30,5 +30,4 @@ class Estadis extends Component
     }
 }
 
-
 ?>

@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 class JugadoraController extends Controller
 {
     protected $jugadores = [
-        ['nom' => 'Alexia Putellas', 'equip' => 'Barça Femení', 'posició' => 'Migcampista'],
-        ['nom' => 'Esther González', 'equip' => 'Atlètic de Madrid', 'posició' => 'Davantera'],
-        ['nom' => 'Misa Rodríguez', 'equip' => 'Real Madrid Femení', 'posició' => 'Portera'],
+        ['nom' => 'Alexia Putellas', 'equip' => 'Barça Femení', 'posicio' => 'Migcampista'],
+        ['nom' => 'Esther González', 'equip' => 'Atlètic de Madrid', 'posicio' => 'Davantera'],
+        ['nom' => 'Misa Rodríguez', 'equip' => 'Real Madrid Femení', 'posicio' => 'Portera'],
     ];
 
     /**
@@ -18,7 +18,8 @@ class JugadoraController extends Controller
     public function index()
     {
         $jugadores = $this->jugadores;
-        return view('jugadores.index', compact('jugadores'));
+        return view('components.jugadores.index', compact('jugadores'));
+
     }
 
     /**

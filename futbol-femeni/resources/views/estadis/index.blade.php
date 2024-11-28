@@ -3,7 +3,7 @@
 @section('title', "Guia d'Equips")
 
 @section('content')
-<h1 class="text-3xl font-bold text-blue-800 mb-6">Guia d'Equips</h1>
+<h1 class="text-3xl font-bold text-blue-800 mb-6">Llistat d'estadis</h1>
 <table class="w-full border-collapse border border-gray-300">
     <thead class="bg-gray-200">
     <tr>
@@ -23,5 +23,9 @@
     </tr>
     @endforeach
     </tbody>
+    <a href="{{ route('estadis.crear') }}" class="bg-blue-600 text-white px-4 py-2 rounded mb-4 inline-block hover:bg-blue-700">
+        Afegir Nou Estadi
+    </a>
 </table>
+
 @endsection

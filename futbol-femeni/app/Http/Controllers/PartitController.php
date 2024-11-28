@@ -16,7 +16,7 @@ class PartitController extends Controller
     public function index()
     {
         $partits = $this->partits;
-        return view ('partit.view',compact('partit'));
+        return view ('components.partits.index',compact('partits'));
     }
 
     /**

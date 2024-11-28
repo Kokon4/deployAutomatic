@@ -23,6 +23,7 @@ body {
  
  nav ul li a:hover {
  text-decoration: underline;
+
  }
 
  .equip {
@@ -37,3 +38,5 @@ body {
    margin: 0;
    color: darkblue;
    }
+
+  

@@ -25,7 +25,7 @@ class EstadiController extends Controller
      */
     public function create()
     {
-        //
+        return view('estadis.crear');
     }
 
     /**
@@ -33,7 +33,13 @@ class EstadiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nom' => 'required|string|max:255',
+            'mitjanaPreuEntrades' => 'required|string|max:10',
+            'aforoMaxim' => 'required|integer|min:0',
+        ]);
+        $this->estadis[] = $validatedData;
+        return redirect()->route('estadis.crear')->with('success', 'Estadi afegit correctament!');
     }
 
     /**
