@@ -21,18 +21,21 @@
         </div>
 
         <div class="mb-4">
-            <label for="mitjanaPreuEntrades" class="block text-gray-700">Mitjana Preu Entrades</label>
-            <input type="text" id="mitjanaPreuEntrades" name="mitjanaPreuEntrades" class="w-full p-2 border border-gray-300 rounded" required>
+            <label for="ciutat" class="block text-gray-700">Ciutat</label>
+            <input type="text" id="ciutat" name="ciutat" class="w-full p-2 border border-gray-300 rounded" required>
         </div>
 
         <div class="mb-4">
-            <label for="aforoMaxim" class="block text-gray-700">Aforament Màxim</label>
-            <input type="number" id="aforoMaxim" name="aforoMaxim" class="w-full p-2 border border-gray-300 rounded" required>
+            <label for="capacitat" class="block text-gray-700">Capacitat</label>
+            <input type="number" id="capacitat" name="capacitat" class="w-full p-2 border border-gray-300 rounded" required>
         </div>
 
-        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-            Afegir Estadi
-        </button>
+        <div class="mb-4">
+            <label for="equip_principal" class="block text-gray-700">Equip Principal</label>
+            <input type="number" id="equip_principal" name="equip_principal" class="w-full p-2 border border-gray-300 rounded" required>
+        </div>
+        
+        <input type="submit" value ="Afegir nou estadi">
     </form>
 </div>
 @endsection

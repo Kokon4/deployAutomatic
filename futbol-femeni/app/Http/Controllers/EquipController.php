@@ -3,19 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Equip;
 
 class EquipController extends Controller
 {
-    protected $equips = [
-        ['nom' => 'Barça Femení', 'estadi' => 'Camp Nou', 'titols' => 30],
-        ['nom' => 'Atlètic de Madrid', 'estadi' => 'Cívitas Metropolitano', 'titols' => 10],
-        ['nom' => 'Real Madrid Femení', 'estadi' => 'Alfredo Di Stéfano', 'titols' => 5],
-    ];
     /**
      * Display a listing of the resource.
      */
     public function index() {
-        $equips = $this->equips;
+        $equips = Equip::all();
         return view('equips.index', compact('equips'));
     }
 
@@ -40,8 +36,8 @@ class EquipController extends Controller
      */
     public function show(string $id)
     {
-        $equips = $this->equips;
-        $equips = $this->equips[$id];
+        $equips = Equip::all();
+        $equip = $equips[$id -1];
         return view('equips.show', compact('equip'));
     }
     
@@ -69,3 +65,4 @@ class EquipController extends Controller
         //
     }
 }
+

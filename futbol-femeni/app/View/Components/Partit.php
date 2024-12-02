@@ -8,7 +8,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Date;
 use Illuminate\View\Component;
 
-class Estadis extends Component
+class Partit extends Component
 {
     /**
      * Create a new component instance.
@@ -16,8 +16,8 @@ class Estadis extends Component
     public function __construct(
         public string $local,
         public string $visitant,
-        public Date $data,
-        public string $resultat ) { 
+        public string $date,
+        public ? string $resultat ) { 
             
         }
 

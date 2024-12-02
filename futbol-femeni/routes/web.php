@@ -8,7 +8,6 @@ use App\Http\Controllers\PartitController;
 
 Route::view('/', 'welcome');
 
-
 Route::resource('/equips',EquipController::class);
 
 Route::resource('/estadis',EstadiController::class);
@@ -17,6 +16,4 @@ Route::resource('/jugadores',JugadoraController::class);
 
 Route::resource('/partits',PartitController::class);
 
-Route::get('/estadis/crear', [EstadiController::class, 'create'])->name('estadis.crear');
-Route::post('/estadis', [EstadiController::class, 'store'])->name('estadis.guardar');
 ?>

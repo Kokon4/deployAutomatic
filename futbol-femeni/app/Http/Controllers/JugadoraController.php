@@ -18,7 +18,7 @@ class JugadoraController extends Controller
     public function index()
     {
         $jugadores = $this->jugadores;
-        return view('components.jugadores.index', compact('jugadores'));
+        return view('jugadores.index', compact('jugadores'));
 
     }
 
@@ -43,7 +43,9 @@ class JugadoraController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $jugadores = $this->jugadores;
+        $jugadora = $this->jugadores[$id];
+        return view('jugadores.show', compact('jugadora'));
     }
 
     /**

@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 class PartitController extends Controller
 {
     protected $partits = [
-        ['local' => 'Barça Femení', 'visitant' => 'Atlètic de Madrid', 'data' => '2024-11-30', 'resultat' => null],
-        ['local' => 'Real Madrid Femení', 'visitant' => 'Barça Femení', 'data' => '2024-12-15', 'resultat' => '0-3'],
+        ['local' => 'Barça Femení', 'visitant' => 'Atlètic de Madrid', 'date' => '2024-11-30', 'resultat' => null],
+        ['local' => 'Real Madrid Femení', 'visitant' => 'Barça Femení', 'date' => '2024-12-15', 'resultat' => '0-3'],
     ];
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class PartitController extends Controller
     public function index()
     {
         $partits = $this->partits;
-        return view ('components.partits.index',compact('partits'));
+        return view ('partits.index',compact('partits'));
     }
 
     /**
@@ -40,7 +40,9 @@ class PartitController extends Controller
      */
     public function show(string $id)
     {
-        //
+            $partits = $this->partits;
+            $partit = $this->partits[$id];
+            return view('partits.show', compact('partit'));
     }
 
     /**

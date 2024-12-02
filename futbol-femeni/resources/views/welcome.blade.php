@@ -14,5 +14,6 @@
         <h1 class="text-3xl font-bold">Bienvenido a la página principal</h1>
         <p class="mt-2">Explora las secciones usando el menú superior.</p>
     </div>
+    <p>&copy; 2024 Guia de Futbol Femení</p>
 </body>
 </html>

@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 class EstadiController extends Controller
 {
     protected $estadis = [
-        ['nom' => 'Camp nou', 'mitjanaPreuEntrades' => '70€', 'aforoMaxim' => 30],
-        ['nom' => 'Civitas Metropolitano', 'mitjanaPreuEntrades' => '30€', 'aforoMaxim' => 10],
-        ['nom' => 'Alfredo Di Stéfano', 'mitjanaPreuEntrades' => '50€', 'aforoMaxim' => 5],
+        ['nom' => 'Camp nou', 'ciutat' => 'Sant Joan', 'capacitat' => 6000,'equip_principal' => 'FC Barcelona Femení'],
+        ['nom' => 'Wanda Metropolitano', 'ciutat' => 'Alcala de Henares', 'capacitat' => 6000,'equip_principal' => 'Atletic de Madrid Femení'],
+        ['nom' => 'Camp nou', 'ciutat' => 'Madrid', 'capacitat' => 6000,'equip_principal' => 'Real Madrid Femení'],
     ];
+
     /**
      * Display a listing of the resource.
      */
@@ -35,11 +36,13 @@ class EstadiController extends Controller
     {
         $validatedData = $request->validate([
             'nom' => 'required|string|max:255',
-            'mitjanaPreuEntrades' => 'required|string|max:10',
-            'aforoMaxim' => 'required|integer|min:0',
+            'ciutat' => 'required|string|max:10',
+            'capacitat' => 'required|integer|min:0',
+            'equip_principal' => 'required|integer|min:0',
         ]);
         $this->estadis[] = $validatedData;
-        return redirect()->route('estadis.crear')->with('success', 'Estadi afegit correctament!');
+        $estadis = $this->estadis;
+        return view('estadis.index', compact('estadis'));
     }
 
     /**
@@ -47,7 +50,9 @@ class EstadiController extends Controller
      */
     public function show(string $id)
     {
-        //
+            $estadis = $this->estadis;
+            $estadi = $this->estadis[$id];
+            return view('estadis.show', compact('estadi'));
     }
 
     /**

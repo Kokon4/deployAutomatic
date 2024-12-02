@@ -1,9 +1,10 @@
 @extends('layouts.app')
 @section('title', "Pagina equip Femení" )
 @section('content')
-<x-equip
+<x-estadi
    :nom="$estadi['nom']"
-   :mitjanaPreuEntrades="$estadi['mitjanaPreuEntrades']"
-   :aforoMaxim="$estadi['aforoMaxim']"
+   :ciutat="$estadi['ciutat']"
+   :capacitat="$estadi['capacitat']"
+   :equip_principal="$estadi['equip_principal']"
 />
 @endsection

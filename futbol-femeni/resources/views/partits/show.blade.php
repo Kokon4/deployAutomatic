@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('title', "Pagina equip Femení" )
 @section('content')
-<x-equip
-   :local="$partit['nom']"
+<x-partit
+   :local="$partit['local']"
    :visitant="$partit['visitant']"
-   :data="$partit['data']"
+   :date="$partit['date']"
    :resultat="$partit['resultat']"
 />
 @endsection

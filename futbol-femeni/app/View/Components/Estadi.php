@@ -6,15 +6,16 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Estadis extends Component
+class Estadi extends Component
 {
     /**
      * Create a new component instance.
      */
     public function __construct(
         public string $nom,
-        public string $mitjanaPreuEntrades,
-        public int $aforoMaxim ) { 
+        public string $ciutat,
+        public int $capacitat,
+        public string $equip_principal ) { 
             
         }
 
