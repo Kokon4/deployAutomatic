@@ -23,12 +23,17 @@
         <td class="border border-gray-300 p-2">{{ $equip->titols }}</td>
 
         <td class="border border-gray-300 p-2 flex space-x-2">
-            <a href="{{ route('equips.show', $equip->id) }}" class="text-green-600 hover:underline">Mostrar</a>
-            <a href="{{ route('equips.edit', $equip->id) }}" class="text-yellow-600 hover:underline">Editar</a>
-            <a href="{{ route('equips.destroy', $equip->id) }}" class="text-yellow-600 hover:underline">Borrar</a>
+            <a href="{{ route('equips.show', $equip->id) }}" class="text-green-600 hover:underline"> Mostrar </a>
+            <a href="{{ route('equips.edit', $equip->id) }}" class="text-yellow-600 hover:underline"> Editar </a>
+            <form action="{{route('equips.destroy',$equip->id)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit">Esborrar</button>
+            </form>
         </td>
     </tr>
     @endforeach
     </tbody>
 </table>
+{{$equips->links()}}
 @endsection

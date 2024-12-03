@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::table('estadis', function (Blueprint $table) {
             $table->string('ciutat')->nullable(); // Añade la columna ciutat
-            $table->string('equip_principal')->nullable(); // Añade la columna equip_principal
         });
     }
 
@@ -23,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('estadis', function (Blueprint $table) {
-            //
+           $table->dropColumn('ciutat');
         });
     }
 };

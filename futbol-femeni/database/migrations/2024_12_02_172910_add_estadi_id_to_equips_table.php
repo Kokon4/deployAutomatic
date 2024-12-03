@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('equips', function (Blueprint $table) {
-        $table->dropColumn('estadi'); // Esborra el camp estadi
+    
         $table->foreignId('estadi_id')->constrained(); // Afegir la clau forana
         });
     }

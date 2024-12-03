@@ -8,7 +8,6 @@ use App\Models\Estadi;
 
 class EstadiController extends Controller
 {
-    
     /**
      * Display a listing of the resource.
      */
@@ -32,15 +31,15 @@ class EstadiController extends Controller
      */
     public function store(Request $request)
     {
+        // Validar los datos de entrada
         $validatedData = $request->validate([
             'nom' => 'required|string|max:255',
-            'ciutat' => 'required|string|max:10',
+            'ciutat' => 'required|string|max:255',
             'capacitat' => 'required|integer|min:0',
-            'equip_principal' => 'required|integer|min:0',
+            'equip_principal' => 'required|string|max:255',
         ]);
-        $this->estadis[] = $validatedData;
-        $estadis = $this->estadis;
-        return view('estadis.index', compact('estadis'));
+        Estadi::create($validatedData);
+        return redirect()->route('estadis.index');
     }
 
     /**
@@ -48,9 +47,8 @@ class EstadiController extends Controller
      */
     public function show(string $id)
     {
-            $estadis = $this->estadis;
-            $estadi = $this->estadis[$id];
-            return view('estadis.show', compact('estadi'));
+        $estadi = Estadi::findOrFail($id);
+        return view('estadis.show', compact('estadi'));
     }
 
     /**
@@ -58,7 +56,9 @@ class EstadiController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $estadis = Estadi::all();
+        $estadi = Estadi::findOrFail($id);
+        return view('estadis.edit', compact('estadi','estadis'));
     }
 
     /**
@@ -66,14 +66,23 @@ class EstadiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'nom' => 'required|string|max:255',
+            'ciutat' => 'required|string|max:255',
+            'capacitat' => 'required|integer|min:0',
+            'equip_principal' => 'required|string|max:255',
+        ]);
+        $estadi = Estadi::findOrFail($id);
+        $estadi->update($validatedData);
+        return redirect()->route('estadis.show', $id);
     }
-
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $estadi = Estadi::findOrFail($id);
+        $estadi->delete();
+        return redirect()->route('estadis.index');
     }
 }

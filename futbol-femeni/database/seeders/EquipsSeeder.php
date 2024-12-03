@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\Estadi;
+use App\Models\Equip;
 
 class EquipsSeeder extends Seeder
 {
@@ -29,5 +30,8 @@ class EquipsSeeder extends Seeder
             'nom' => 'Real Madrid Femení',
             'titols' => 5,
         ]);
+        //Factories
+        Equip::factory()->count(100)->create();
     }
 }
+
