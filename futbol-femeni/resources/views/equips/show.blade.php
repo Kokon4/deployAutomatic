@@ -2,8 +2,8 @@
 @section('title', "Pagina equip Femení" )
 @section('content')
 <x-equip
-   :nom="$equip['nom']"
-   :estadi="$equip['estadi']"
-   :titols="$equip['titols']"
+   :nom="$equip->nom"
+   :estadi="$equip->estadi->nom"
+   :titols="$equip->titols"
 />
 @endsection

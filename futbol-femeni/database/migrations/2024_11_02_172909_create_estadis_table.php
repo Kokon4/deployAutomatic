@@ -9,15 +9,12 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('equips', function (Blueprint $table) {
+        Schema::create('estadis', function (Blueprint $table) {
             $table->id();
             $table->string('nom')->unique();
-            $table->string('estadi');
-            $table->integer('titols')->default(0);
-            $table->unsignedBigInteger('estadi_id');
-            $table->foreign('estadi_id')->references('id')->on('estadis')->onDelete('cascade');
+            $table->integer('capacitat');
             $table->timestamps();
         });
     }
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('equips');
+        Schema::dropIfExists('estadis');
     }
 };

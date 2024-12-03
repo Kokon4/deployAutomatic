@@ -3,21 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Equip;
+use App\Models\Estadi;
 
 class EstadiController extends Controller
 {
-    protected $estadis = [
-        ['nom' => 'Camp nou', 'ciutat' => 'Sant Joan', 'capacitat' => 6000,'equip_principal' => 'FC Barcelona Femení'],
-        ['nom' => 'Wanda Metropolitano', 'ciutat' => 'Alcala de Henares', 'capacitat' => 6000,'equip_principal' => 'Atletic de Madrid Femení'],
-        ['nom' => 'Camp nou', 'ciutat' => 'Madrid', 'capacitat' => 6000,'equip_principal' => 'Real Madrid Femení'],
-    ];
-
+    
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $estadis = $this->estadis;
+        $estadis = Estadi::all();
         return view('estadis.index', compact('estadis'));
     }
 
@@ -26,6 +23,7 @@ class EstadiController extends Controller
      */
     public function create()
     {
+        $estadis = Estadi::all();
         return view('estadis.crear');
     }
 

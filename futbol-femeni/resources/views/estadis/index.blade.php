@@ -14,10 +14,10 @@
     </tr>
     </thead>
     <tbody>
-    @foreach($estadis as $key => $estadi)
+    @foreach($estadis as $estadi)
     <tr class="hover:bg-gray-100">
         <td class="border border-gray-300 p-2">
-            <a href="{{ route('estadis.show', $key) }}" class="text-blue-700 hover:underline">{{ $estadi['nom'] }}</a>
+            <a href="{{ route('estadis.show', $estadi->id) }}" class="text-blue-700 hover:underline">{{ $estadi->nom }}</a>
         </td>
         <td class="border border-gray-300 p-2">{{ $estadi['ciutat'] }}</td>
         <td class="border border-gray-300 p-2">{{ $estadi['capacitat'] }}</td>
