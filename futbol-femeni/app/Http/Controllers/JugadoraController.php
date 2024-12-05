@@ -3,23 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Jugadora;
+use App\Models\Equip;
 
 class JugadoraController extends Controller
 {
-    protected $jugadores = [
-        ['nom' => 'Alexia Putellas', 'equip' => 'Barça Femení', 'posicio' => 'Migcampista'],
-        ['nom' => 'Esther González', 'equip' => 'Atlètic de Madrid', 'posicio' => 'Davantera'],
-        ['nom' => 'Misa Rodríguez', 'equip' => 'Real Madrid Femení', 'posicio' => 'Portera'],
-    ];
+    //  protected $jugadores = [
+    //     ['nom' => 'Alexia Putellas', 'equip' => 'Barça Femení', 'posicio' => 'Migcampista'],
+    //     ['nom' => 'Esther González', 'equip' => 'Atlètic de Madrid', 'posicio' => 'Davantera'],
+    //     ['nom' => 'Misa Rodríguez', 'equip' => 'Real Madrid Femení', 'posicio' => 'Portera'],
+    // ];
+
 
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $jugadores = $this->jugadores;
+        $jugadores = Jugadora::all();
         return view('jugadores.index', compact('jugadores'));
-
     }
 
     /**
@@ -41,10 +43,8 @@ class JugadoraController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Jugadora $jugadora)
     {
-        $jugadores = $this->jugadores;
-        $jugadora = $this->jugadores[$id];
         return view('jugadores.show', compact('jugadora'));
     }
 

@@ -18,6 +18,7 @@ class EstadiFactory extends Factory
     {
         return [
             'nom' => $this->faker->unique()->city.' Stadium',
+            'ciutat' => $this->faker->unique()->city,
             'capacitat' => $this->faker->numberBetween(10000, 100000),
         ];
     }

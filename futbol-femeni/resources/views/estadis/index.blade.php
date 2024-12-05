@@ -21,7 +21,6 @@
         </td>
         <td class="border border-gray-300 p-2">{{ $estadi['ciutat'] }}</td>
         <td class="border border-gray-300 p-2">{{ $estadi['capacitat'] }}</td>
-
         <td class="border border-gray-300 p-2 flex space-x-2">
             <a href="{{ route('estadis.show', $estadi->id) }}" class="text-green-600 hover:underline"> Mostrar </a>
             <a href="{{ route('estadis.edit', $estadi->id) }}" class="text-yellow-600 hover:underline"> Editar </a>

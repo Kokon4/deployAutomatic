@@ -2,9 +2,9 @@
 @section('title', "Pagina equip Femení" )
 @section('content')
 <x-estadi
-   :nom="$estadi['nom']"
-   :ciutat="$estadi['ciutat']"
-   :capacitat="$estadi['capacitat']"
-   :equip_principal="$estadi['equip_principal']"
+   :nom="$estadi->nom"
+   :ciutat="$estadi->ciutat"
+   :capacitat="$estadi->capacitat"
+   :equip_principal="$estadi->equipPrincipal?->nom ?? 'No especificado'"
 />
 @endsection

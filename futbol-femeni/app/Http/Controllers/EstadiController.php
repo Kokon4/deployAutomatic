@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Equip;
 use App\Models\Estadi;
@@ -13,7 +11,7 @@ class EstadiController extends Controller
      */
     public function index()
     {
-        $estadis = Estadi::all();
+        $estadis = Estadi::paginate(10);
         return view('estadis.index', compact('estadis'));
     }
 
@@ -22,8 +20,9 @@ class EstadiController extends Controller
      */
     public function create()
     {
+        $equips = Equip::all();
         $estadis = Estadi::all();
-        return view('estadis.crear');
+        return view('estadis.crear',compact('equips','estadis'));
     }
 
     /**
@@ -45,9 +44,8 @@ class EstadiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Estadi $estadi)
     {
-        $estadi = Estadi::findOrFail($id);
         return view('estadis.show', compact('estadi'));
     }
 
@@ -79,10 +77,9 @@ class EstadiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Estadi $estadi)
     {
-        $estadi = Estadi::findOrFail($id);
         $estadi->delete();
-        return redirect()->route('estadis.index');
+        return redirect()->route('estadis.index')->with('success', 'Estadi esborrat correctament!');
     }
 }

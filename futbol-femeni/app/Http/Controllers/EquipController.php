@@ -59,7 +59,6 @@ public function destroy(Equip $equip)
     if ($equip->escut) {
         Storage::disk('public')->delete($equip->escut);
     }
-
     $equip->delete();
     return redirect()->route('equips.index')->with('success', 'Equip esborrat correctament!');
 }

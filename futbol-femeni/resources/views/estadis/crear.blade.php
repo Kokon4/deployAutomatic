@@ -32,7 +32,7 @@
 
         <div class="mb-4">
             <label for="equip_principal" class="block text-gray-700">Equip Principal</label>
-            <input type="number" id="equip_principal" name="equip_principal" class="w-full p-2 border border-gray-300 rounded" required>
+            <input type="text" id="equip_principal" name="equip_principal" class="w-full p-2 border border-gray-300 rounded" required>
         </div>
         
         <input type="submit" value ="Afegir nou estadi">

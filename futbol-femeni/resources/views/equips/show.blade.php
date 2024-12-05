@@ -3,7 +3,7 @@
 @section('content')
 <x-equip
    :nom="$equip->nom"
-   :estadi="$equip->estadi->nom"
+   :estadi="$equip->estadi->nom??'Sense Estadi'"
    :titols="$equip->titols"
    :escut="$equip->escut"
 />

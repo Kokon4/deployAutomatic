@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('equips', function (Blueprint $table) {
-    
-            $table->foreignId('estadi_id')->nullable()->constrained()->onDelete('set null');
-
+        Schema::create('partits', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
     }
 
@@ -23,10 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('equips', function (Blueprint $table) {
-        $table->string('estadi');
-        $table->dropForeign(['estadi_id']);
-        $table->dropColumn('estadi_id');
-        });
+        Schema::dropIfExists('partits');
     }
 };
