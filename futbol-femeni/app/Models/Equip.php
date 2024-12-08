@@ -11,6 +11,6 @@ class Equip extends Model
     
     public function estadi()
     {
-        return $this->belongsTo(Estadi::class);
+        return $this->belongsTo(Estadi::class,'equip_id');
     }
 }

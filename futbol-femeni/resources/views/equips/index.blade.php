@@ -34,6 +34,9 @@
     </tr>
     @endforeach
     </tbody>
+    <a href="{{ route('equips.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded mb-4 inline-block hover:bg-blue-700">
+        Afegir Nou Equip
+    </a>
 </table>
 {{$equips->links()}}
 @endsection

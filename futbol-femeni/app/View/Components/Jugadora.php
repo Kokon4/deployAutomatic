@@ -12,9 +12,9 @@ class Jugadora extends Component
      * Create a new component instance.
      */
     public function __construct(
-        public string $nom,
-        public string $equip,
-        public string $posicio ) { 
+        public ? string $nom,
+        public ? string $equip,
+        public ? string $posicio ) { 
         }
 
     /**

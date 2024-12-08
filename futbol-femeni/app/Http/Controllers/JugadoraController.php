@@ -5,16 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Jugadora;
 use App\Models\Equip;
+use Illuminate\Support\Facades\Storage;
 
 class JugadoraController extends Controller
 {
-    //  protected $jugadores = [
-    //     ['nom' => 'Alexia Putellas', 'equip' => 'Barça Femení', 'posicio' => 'Migcampista'],
-    //     ['nom' => 'Esther González', 'equip' => 'Atlètic de Madrid', 'posicio' => 'Davantera'],
-    //     ['nom' => 'Misa Rodríguez', 'equip' => 'Real Madrid Femení', 'posicio' => 'Portera'],
-    // ];
-
-
     /**
      * Display a listing of the resource.
      */
@@ -29,7 +23,8 @@ class JugadoraController extends Controller
      */
     public function create()
     {
-        //
+        $equips = Equip::all();
+        return view('jugadores.create', compact('equips'));
     }
 
     /**
@@ -37,7 +32,18 @@ class JugadoraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nom' => 'required|unique:jugadores',
+            'equip_id' => 'required|exists:equip,id',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+        ]);
+
+        if ($request->hasFile('foto')) {
+            $path = $request->file('foto')->store('fotos','public');
+            $validated['foto'] = $path;
+        }
+        Jugadora::create($validated);
+        return redirect()->route('jugadores.index')->with('succes','Jugadora creada correctament');
     }
 
     /**
@@ -51,9 +57,10 @@ class JugadoraController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Jugadora $jugadora)
     {
-        //
+        $equips = Equip::all();
+        return view('jugadores.edit', compact('jugadora','equips'));
     }
 
     /**
@@ -61,14 +68,32 @@ class JugadoraController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'nom' => 'required|string|max:255',
+            'equip_id' => 'required|exists:equips,id',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'posicio' => 'required|string|max:255',
+        ]);
+
+        $jugadora = Jugadora::findOrFail($id);
+        if ($request->hasFile('foto')) {
+            if ($jugadora->foto) {
+                Storage::disk('public')->delete($jugadora->foto);
+            }
+            $path = $request->file('foto')->store('fotos', 'public');
+            $validated['foto'] = $path;
+        }
+        $jugadora->update($validated);
+        return redirect()->route('jugadoras.index')->with('success', 'Jugadora actualitzada correctament!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Jugadora $jugadora)
     {
-        //
+        if($jugadora->foto){
+            Storage::disk('public')->delete($jugadora->foto);
+        }
     }
 }
