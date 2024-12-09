@@ -33,7 +33,7 @@
             <label for="posicio" class="block text-gray-700">Posicio</label>
             <input type="text" id="posicio" name="posicio" class="w-full p-2 border border-gray-300 rounded" required>
         </div>
-        <input type="submit" value ="Afegir nova Jugadora">
+        <input type="submit" value ="Editar Jugadora">
     </form>
 </div>
 @endsection
