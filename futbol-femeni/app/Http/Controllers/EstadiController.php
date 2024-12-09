@@ -74,6 +74,7 @@ class EstadiController extends Controller
         $estadi->update($validatedData);
         return redirect()->route('estadis.show', $id);
     }
+    
     /**
      * Remove the specified resource from storage.
      */

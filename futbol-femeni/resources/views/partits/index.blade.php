@@ -20,7 +20,7 @@
             <a href="{{ route('partits.show', $key) }}" class="text-blue-700 hover:underline">{{ $partit['local'] }}</a>
         </td>
         <td class="border border-gray-300 p-2">{{ $partit['visitant'] }}</td>
-        <td class="border border-gray-300 p-2">{{ $partit['date'] }}</td>
+        <td class="border border-gray-300 p-2">{{ $partit['data'] }}</td>
         <td class="border border-gray-300 p-2">{{ $partit['resultat'] }}</td>
     </tr>
     @endforeach

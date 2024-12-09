@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Partit;
+use App\Models\Estadi;
 
 class PartitController extends Controller
 {
@@ -10,12 +12,13 @@ class PartitController extends Controller
         ['local' => 'Barça Femení', 'visitant' => 'Atlètic de Madrid', 'date' => '2024-11-30', 'resultat' => null],
         ['local' => 'Real Madrid Femení', 'visitant' => 'Barça Femení', 'date' => '2024-12-15', 'resultat' => '0-3'],
     ];
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $partits = $this->partits;
+        $partits = Partit::all();
         return view ('partits.index',compact('partits'));
     }
 
@@ -24,7 +27,7 @@ class PartitController extends Controller
      */
     public function create()
     {
-        //
+     //
     }
 
     /**

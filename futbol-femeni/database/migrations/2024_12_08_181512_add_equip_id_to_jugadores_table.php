@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('jugadores', function (Blueprint $table) {
+            $table->dropColumn('equip');
             $table->foreignId('equip_id')->nullable()->constrained('equips')->onDelete('cascade'); // Agregar "equip_id"
         });
     }
@@ -22,9 +23,9 @@ return new class extends Migration
     public function down(): void
     {
          Schema::table('jugadores', function (Blueprint $table) {
-            $table->string('equip'); // Restaurar la columna "equip"
-            $table->dropForeign(['equip_id']); // Eliminar la clave foránea
-            $table->dropColumn('equip_id'); // Eliminar la columna "equip_id"
+            $table->string('equip');
+            $table->dropForeign(['equip_id']);
+            $table->dropColumn('equip_id');
         });
     }
 };

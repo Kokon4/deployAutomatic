@@ -49,16 +49,18 @@ class JugadoraController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Jugadora $jugadora)
+    public function show($id)
     {
+        $jugadora = Jugadora::findOrFail($id);
         return view('jugadores.show', compact('jugadora'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Jugadora $jugadora)
-    {
+    public function edit($id)
+    {   
+        $jugadora = Jugadora::findOrFail($id);
         $equips = Equip::all();
         return view('jugadores.edit', compact('jugadora','equips'));
     }
@@ -90,10 +92,14 @@ class JugadoraController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Jugadora $jugadora)
+    public function destroy($id)
     {
+        $jugadora = Jugadora::findOrFail($id);
         if($jugadora->foto){
             Storage::disk('public')->delete($jugadora->foto);
         }
+
+        $jugadora->delete();
+        return redirect()->route('jugadores.index')->with('success', 'Jugadora esborrada correctament!');
     }
 }

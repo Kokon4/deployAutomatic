@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\Partit;
 
 class PartitsSeeder extends Seeder
 {
@@ -13,10 +14,6 @@ class PartitsSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('partits')->insert([
-            ['nom' => 'Alexia Putellas', 'equip' => 'Barça Femení', 'posicio' => 'migcampista'],
-            ['nom' => 'Esther Gonzalez', 'equip' => 'Atletic de Madrid', 'posicio' => 'Davantera'],
-            ['nom' => 'Misa Rodriguez', 'equip' => 'Real Madrid Femení', 'posicio' => 'Portera'],
-        ]);
+       Partit::factory(10)->create();
     }
 }

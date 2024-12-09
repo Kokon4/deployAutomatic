@@ -31,7 +31,7 @@ class EquipsSeeder extends Seeder
             'titols' => 5,
         ]);
         //Factories
-        Equip::factory()->count(100)->create();
+        Equip::factory()->count(15)->create();
     }
 }
 

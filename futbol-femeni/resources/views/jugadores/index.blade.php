@@ -17,9 +17,9 @@
     @foreach($jugadores as $jugadora)
     <tr class="hover:bg-gray-100">
         <td class="border border-gray-300 p-2">
-            <a href="{{ route('jugadores.show', $jugadora->id) }}" class="text-blue-700 hover:underline">{{ $jugadora->nom }}</a>
+            <a href="{{ route('jugadores.show', $jugadora) }}" class="text-blue-700 hover:underline">{{ $jugadora->nom }}</a>
         </td>
-        <td class="border border-gray-300 p-2">{{ $jugadora->equip }}</td>
+        <td class="border border-gray-300 p-2">{{ $jugadora->equip->nom }}</td>
         <td class="border border-gray-300 p-2">{{ $jugadora->posicio }}</td>
         <td class="border border-gray-300 p-2 flex space-x-2">
             <a href="{{ route('jugadores.show', $jugadora->id) }}" class="text-green-600 hover:underline"> Mostrar </a>

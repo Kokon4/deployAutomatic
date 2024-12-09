@@ -54,7 +54,7 @@
 </div>
     
     <button type="submit"
-        class="w-full bg-blue-500 text-white font-medium py-2 px-4 rounded-lg shadow hover:bg-blue-600 focus:ring focus:ring-blue-300">
+        class="w-full bg-blue-500 text-black font-medium py-2 px-4 rounded-lg shadow hover:bg-blue-600 focus:ring focus:ring-blue-300">
         Actualitzar Equip
     </button>
 </form>

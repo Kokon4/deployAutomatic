@@ -26,3 +26,4 @@ class JugadoraFactory extends Factory
         ];
     }
 }
+

@@ -12,7 +12,7 @@
         </div>
     @endif
 
-    <form action="{{ route('jugadora.update') }}" method="POST" class="bg-gray-100 p-6 rounded shadow-md">
+    <form action="{{ route('jugadores.update', $jugadora->id) }}" method="POST" class="bg-gray-100 p-6 rounded shadow-md">
         @csrf
         <div class="mb-4">
             <label for="nom" class="block text-gray-700">Nom de la Jugadora</label>

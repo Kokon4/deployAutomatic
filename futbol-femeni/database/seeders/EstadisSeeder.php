@@ -17,22 +17,19 @@ class EstadisSeeder extends Seeder
         Estadi::create([
             'nom' => 'Camp Nou',
             'ciutat' => 'Barcelona',
-            'capacitat' => 99000,
-            
+            'capacitat' => 99000, 
         ]);
 
         Estadi::create([
             'nom' => 'Wanda Metropolitano',
             'ciutat' => 'Alcala de Henares',
             'capacitat' => 68000,
-            
         ]);
 
         Estadi::create([
             'nom' => 'Santiago Bernabéu',
             'ciutat' => 'Madrid',
             'capacitat' => 81000,
-            
         ]);
     }
 }
