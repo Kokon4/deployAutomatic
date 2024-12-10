@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('partits', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('equip_local_id')->constrained('equips'); 
+            $table->foreignId('equip_visitant_id')->constrained('equips');  
+            $table->dateTime('data'); 
+            $table->string('resultat')->nullable();
             $table->timestamps();
         });
     }

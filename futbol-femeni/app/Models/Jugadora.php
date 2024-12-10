@@ -8,7 +8,7 @@ class Jugadora extends Model
 {
     use HasFactory;
     protected $table = 'jugadores';
-    protected $fillable = ['nom', 'equip', 'posicio'];
+    protected $fillable = ['nom', 'equip_id', 'posicio','foto'];
     public function equip(){
         return $this->belongsTo(Equip::class, 'equip_id');
     }

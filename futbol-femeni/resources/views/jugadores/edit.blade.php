@@ -33,6 +33,16 @@
             <label for="posicio" class="block text-gray-700">Posicio</label>
             <input type="text" id="posicio" name="posicio" class="w-full p-2 border border-gray-300 rounded" required>
         </div>
+
+        <div class="mb-4">
+            <label for="foto" class="block text-sm font-medium text-gray-700 mb-1">Foto:</label>
+            <input type="file" name="foto" id="foto" accept="image/*"
+                class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            @if($jugadora->foto)
+                <img src="{{ asset('storage/' . $jugadora->foto) }}" alt="Foto de {{ $jugadora->nom }}" class="mt-2 max-w-xs">
+            @endif
+        </div>
+
         <input type="submit" value ="Editar Jugadora">
     </form>
 </div>

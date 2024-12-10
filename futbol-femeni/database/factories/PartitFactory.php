@@ -19,9 +19,13 @@ class PartitFactory extends Factory
      */
     public function definition(): array
     {
+
+        $equipLocal = Equip::query()->inRandomOrder()->first();
+        $equipVisitant = Equip::query()->where('id', '!=', $equipLocal->id)->inRandomOrder()->first();
+
         return [
-            'equip_local_id' => Equip::query()->inRandomOrder()->first('id'),
-            'equip_visitant_id' => Equip::query()->inRandomOrder()->first('id'),
+            'equip_local_id' => $equipLocal->id,
+            'equip_visitant_id' => $equipVisitant->id,
             'data' => $this->faker->dateTimeBetween('2022-01-01', '2023-12-31'),
             'resultat' => $this->faker->numberBetween(0,10) . ' - ' . $this->faker->numberBetween(0,10),
         ];

@@ -2,9 +2,9 @@
 @section('title', "Pagina equip Femení" )
 @section('content')
 <x-partit
-   :local="$partit['local']"
-   :visitant="$partit['visitant']"
-   :date="$partit['date']"
-   :resultat="$partit['resultat']"
+   :local="$partit->equip_local->nom"
+   :visitant="$partit->equip_visitant->nom"
+   :date="$partit->data"
+   :resultat="$partit->resultat"
 />
 @endsection

@@ -9,14 +9,14 @@ class Partit extends Model
 {
     use HasFactory;
     protected $table ='partits';
-    protected $fillable = ['local', 'visitant', 'data', 'resultat'];
+    protected $fillable = ['equip_local_id', 'equip_visitant_id', 'data', 'resultat'];
 
     public function equip_local(){
-        return $this->belongsTo(Equip::class, 'equip_local');
+        return $this->belongsTo(Equip::class, 'equip_local_id');
     }
 
     public function equip_visitant(){
-        return $this->belongsTo(Equip::class, 'equip_visitant');
+        return $this->belongsTo(Equip::class, 'equip_visitant_id');
     }
 }
 

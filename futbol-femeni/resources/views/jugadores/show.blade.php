@@ -5,5 +5,6 @@
    :nom="$jugadora->nom"
    :equip="$jugadora->equip"
    :posicio="$jugadora->posicio"
+   :foto="$jugadora->foto"
 />
 @endsection

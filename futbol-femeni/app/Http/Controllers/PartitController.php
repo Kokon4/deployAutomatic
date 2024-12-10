@@ -4,21 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Partit;
-use App\Models\Estadi;
+use App\Models\Equip;
 
 class PartitController extends Controller
 {
-    protected $partits = [
-        ['local' => 'Barça Femení', 'visitant' => 'Atlètic de Madrid', 'date' => '2024-11-30', 'resultat' => null],
-        ['local' => 'Real Madrid Femení', 'visitant' => 'Barça Femení', 'date' => '2024-12-15', 'resultat' => '0-3'],
-    ];
-
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $partits = Partit::all();
+        $partits = Partit::with('equip_local', 'equip_visitant')->get();
         return view ('partits.index',compact('partits'));
     }
 
@@ -27,7 +22,8 @@ class PartitController extends Controller
      */
     public function create()
     {
-     //
+     $equips = Equip::all();
+     return view('partits.create',compact('equips'));
     }
 
     /**
@@ -35,40 +31,58 @@ class PartitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'equip_local_id' => 'required|exists:equips,id',
+            'equip_visitant_id' => 'required|exists:equips,id',
+            'data' => 'required|date',
+            'resultat' => 'nullable|string',
+        ]);
+        Partit::create($validated);
+        return redirect()->route('partits.index', [
+            'success' => 'Partit creat correctament!' 
+        ]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Partit $partit)
     {
-            $partits = $this->partits;
-            $partit = $this->partits[$id];
-            return view('partits.show', compact('partit'));
+        return view('partits.show', compact('partit'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Partit $partit)
     {
-        //
+        $equips = Equip::all();
+        return view('partits.edit', compact('partit', 'equips'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Partit $partit)
     {
-        //
+        $validatedData = $request->validate([
+            'equip_local_id' => 'required|exists:equips,id',
+            'equip_visitant_id' => 'required|exists:equips,id|different:equip_local_id',
+            'data' => 'required|date',
+            'resultat' => 'nullable|string',
+        ]);
+
+        $partit->update($validatedData);
+
+        return redirect()->route('partits.index')->with('success', 'Partit actualitzat amb èxit.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Partit $partit)
     {
-        //
+        $partit->delete();
+        return redirect()->route('partits.index')->with('success', 'Partit eliminat amb èxit.');
     }
 }
