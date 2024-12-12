@@ -46,7 +46,8 @@ class EstadiController extends Controller
      */
     public function show(Estadi $estadi)
     {
-        return view('estadis.show', compact('estadi'));
+        $equips = Equip::all();   
+        return view('estadis.show', compact('estadi','equips'));
     }
 
     /**
@@ -54,9 +55,10 @@ class EstadiController extends Controller
      */
     public function edit(string $id)
     {
+        $equips = Equip::all();
         $estadis = Estadi::all();
         $estadi = Estadi::findOrFail($id);
-        return view('estadis.edit', compact('estadi','estadis'));
+        return view('estadis.edit', compact('estadi','estadis','equips'));
     }
 
     /**

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}"> <!-- Si tienes CSS -->
-    @vite(['resources/css/equips.css'])
+    <link rel="stylesheet" href="../css/app.css">
 </head>
 <body class="bg-gray-800 text-white">
     @include('partials.menu')

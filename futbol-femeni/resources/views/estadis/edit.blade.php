@@ -37,15 +37,23 @@
         @enderror
     </div>
 
+
     <div class="mb-4">
-        <label for="equip_principal" class="block text-sm font-medium text-gray-700 mb-1">Equip Principal:</label>
-        <input type="text" name="equip_principal" id="equip_principal" value="{{ old('equip_principal', $estadi->equip_principal) }}" required
-            class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 
-            @error('equip_principal') border-red-500 @enderror">
-        @error('equip_principal')
-            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-        @enderror
-    </div>
+    <label for="equip_principal" class="block text-sm font-medium text-gray-700 mb-1">Equip Principal:</label>
+    <select name="equip_principal" id="equip_principal" required
+        class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 
+        @error('equip_principal') border-red-500 @enderror">
+        <option value="" disabled {{ old('equip_principal', $estadi->equip_principal) === null ? 'selected' : '' }}>Selecciona un equip</option>
+        @foreach ($equips as $equip)
+            <option value="{{ $equip->id }}" {{ old('equip_principal', $estadi->equip_principal) == $equip->id ? 'selected' : '' }}>
+                {{ $equip->name }}
+            </option>
+        @endforeach
+    </select>
+    @error('equip_principal')
+        <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+    @enderror
+</div>
 
     <button type="submit"
         class="w-full bg-blue-500 text-black font-medium py-2 px-4 rounded-lg shadow hover:bg-blue-600 focus:ring focus:ring-blue-300">

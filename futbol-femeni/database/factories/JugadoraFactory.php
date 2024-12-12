@@ -23,6 +23,7 @@ class JugadoraFactory extends Factory
             'nom' => $this->faker->name(),
             'posicio' => $this->faker->randomElement(['Portera', 'Davantera', 'migcampista']),
             'equip_id' => Equip::query()->inRandomOrder()->first('id'),
+            'foto' => 'foto/dummy.png', 
         ];
     }
 }

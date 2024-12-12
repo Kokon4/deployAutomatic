@@ -28,11 +28,17 @@
             @endforeach
         </select>
         </div>
-
+        
         <div class="mb-4">
             <label for="posicio" class="block text-gray-700">Posicio</label>
-            <input type="text" id="posicio" name="posicio" class="w-full p-2 border border-gray-300 rounded" required>
+            <select id="posicio" name="posicio" class="w-full p-2 border border-gray-300 rounded" required>
+                <option value="Portera">Portera</option>
+                <option value="Defensa">Defensa</option>
+                <option value="Mediocampista">Mediocampista</option>
+                <option value="Delantera">Delantera</option>
+            </select>
         </div>
+
 
         <div class="mb-4">
             <label for="foto" class="block text-sm font-medium text-gray-700 mb-1">Foto:</label>

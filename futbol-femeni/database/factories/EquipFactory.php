@@ -21,6 +21,7 @@ class EquipFactory extends Factory
             'titols' => $this->faker->numberBetween(0, 50),
             'estadi_id' => \App\Models\Estadi::factory(),
             'escut' => 'escuts/dummy.png', // Imatge de prova predefinida
-         ];
+            
+        ];
     }
 }

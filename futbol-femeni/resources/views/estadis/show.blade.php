@@ -5,6 +5,6 @@
    :nom="$estadi->nom"
    :ciutat="$estadi->ciutat"
    :capacitat="$estadi->capacitat"
-   :equip_principal="$estadi->equips"
+   :equip_principal="$estadi->equip_principal_id"
 />
 @endsection
