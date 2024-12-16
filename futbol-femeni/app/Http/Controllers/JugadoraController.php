@@ -34,7 +34,7 @@ class JugadoraController extends Controller
     {
         $validated = $request->validate([
             'nom' => 'required|unique:jugadores',
-            'equip_id' => 'required|exists:equip,id',
+            'equip_id' => 'required|exists:equips,id',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 

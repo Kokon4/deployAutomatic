@@ -39,7 +39,6 @@
             </select>
         </div>
 
-
         <div class="mb-4">
             <label for="foto" class="block text-sm font-medium text-gray-700 mb-1">Foto:</label>
             <input type="file" name="foto" id="foto" accept="image/*"

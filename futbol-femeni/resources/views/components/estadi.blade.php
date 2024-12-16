@@ -2,5 +2,5 @@
     <h2 class="text-xl font-bold text-blue-800">{{ $nom }}</h2>
     <p><strong>Ciutat:</strong> {{ $ciutat }}</p>
     <p><strong>Capacitat:</strong> {{ $capacitat }}</p>
-    <p><strong>Equip principal: </strong> {{ $equip_principal}}</p>
+    <p><strong>Equip principal: </strong> {{ $equips}}</p>
 </div>

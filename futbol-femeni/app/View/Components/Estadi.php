@@ -15,7 +15,7 @@ class Estadi extends Component
         public string $nom,
         public ? string $ciutat,
         public int $capacitat,
-        public ? string $equip_principal ) { 
+        public ? string $equips ) { 
             
         }
 
