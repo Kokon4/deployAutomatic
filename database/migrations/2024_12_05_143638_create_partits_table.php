@@ -11,15 +11,25 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('partits', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('equip_local_id')->constrained('equips'); 
-            $table->foreignId('equip_visitant_id')->constrained('equips');  
-            $table->dateTime('data'); 
-            $table->string('resultat')->nullable();
-            $table->timestamps();
+        Schema::table('partits', function (Blueprint $table) {
+            if (!Schema::hasColumn('partits', 'equip_local_id')) {
+                $table->foreignId('equip_local_id')->after('id')->constrained('equips');
+            }
+    
+            if (!Schema::hasColumn('partits', 'equip_visitant_id')) {
+                $table->foreignId('equip_visitant_id')->after('equip_local_id')->constrained('equips');
+            }
+    
+            if (!Schema::hasColumn('partits', 'data')) {
+                $table->dateTime('data')->after('equip_visitant_id');
+            }
+    
+            if (!Schema::hasColumn('partits', 'resultat')) {
+                $table->string('resultat')->after('data');
+            }
         });
     }
+
 
     /**
      * Reverse the migrations.
