@@ -9,6 +9,8 @@ require 'recipe/laravel.php';
 set('application', 'futbolfemeni');
 set('repository', 'git@github.com:Kokon4/deployAutomatic.git');
 
+set('keep_releases', 3);
+
 add('shared_files', ['.env']);
 add('shared_dirs', ['storage']);
 add('writable_dirs', ['storage', 'bootstrap/cache']);
